@@ -96,7 +96,7 @@ module Meilisearch
         self
       end
 
-      def await(timeout_in_ms = 5000, interval_in_ms = 50)
+      def await(timeout_in_ms = 30_000, interval_in_ms = 50)
         refresh with: @task_endpoint.wait_for_task(uid, timeout_in_ms, interval_in_ms) unless finished?
 
         self
